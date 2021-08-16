@@ -1,3 +1,14 @@
 export 'widgets/department.dart';
 export 'widgets/locality.dart';
 export 'widgets/dropdown.dart';
+export 'widgets/name.dart';
+export 'widgets/address.dart';
+export 'widgets/insurance.dart';
+export 'widgets/telephone.dart';
+export 'widgets/id_number.dart';
+export 'widgets/id_type.dart';
+export 'widgets/age.dart';
+export 'widgets/diagnosis.dart';
+export 'widgets/sessions.dart';
+export 'widgets/authorization_date.dart';
+export 'widgets/prefered_schedule.dart';

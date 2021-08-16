@@ -11,15 +11,14 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        primaryColor: Color(0xFF0DA3D8),
-        accentColor: Color(0xFF0F9FA7),
+        primarySwatch: Colors.teal,
+        primaryColor: Color(0xFF0F9FA7),
+        accentColor: Color(0xFF0DA3D8),
       ),
       home: Form(),
     );
@@ -37,14 +36,43 @@ class Form extends StatelessWidget {
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
-          print(constraints.maxWidth);
           if (constraints.maxWidth < 600) {
-            return Center(
-              child: Container(
-                height: 50,
-                width: 300,
-                child: DepartmentDropdown(),
-              ),
+            return ListView(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              children: [
+                NameWidget(),
+                SizedBox(height: 16),
+                TypeOfIdDropdown(),
+                IdNumberWidget(),
+                SizedBox(height: 16),
+                AgeWidget(),
+                SizedBox(height: 16),
+                DiagnosisWidget(),
+                SizedBox(height: 16),
+                AddressWidget(),
+                SizedBox(height: 16),
+                InsuranceWidget(),
+                SizedBox(height: 16),
+                TelephoneWidget(),
+                SizedBox(height: 16),
+                DepartmentDropdown(),
+                LocalityDropdown(),
+                SizedBox(height: 16),
+                SessionsWidget(),
+                SizedBox(height: 16),
+                AuthorizationDate(),
+                SizedBox(height: 16),
+                PreferedScheduleDropdown(),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 20.0, vertical: 15.0),
+                    child: Text('Solicitar cita'),
+                  ),
+                ),
+              ],
             );
           } else {
             return Row(

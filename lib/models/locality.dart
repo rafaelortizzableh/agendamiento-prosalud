@@ -2,9 +2,9 @@ import 'dart:convert';
 
 class Locality {
   String name;
-  int id;
+  String id;
   bool? isCapital;
-  int departmentId;
+  String departmentId;
   String? departmentName;
 
   Locality({
@@ -17,9 +17,9 @@ class Locality {
 
   Locality copyWith({
     String? name,
-    int? id,
+    String? id,
     bool? isCapital,
-    int? departmentId,
+    String? departmentId,
     String? departmentName,
   }) {
     return Locality(
@@ -50,11 +50,22 @@ class Locality {
       departmentName: map['departmentName'],
     );
   }
+  factory Locality.fromDaneMap(Map<String, dynamic> map) {
+    return Locality(
+      name: map['municipio'],
+      id: map['c_digo_dane_del_municipio'],
+      departmentId: map['c_digo_dane_del_departamento'],
+      departmentName: map['departamento'],
+    );
+  }
 
   String toJson() => json.encode(toMap());
 
   factory Locality.fromJson(String source) =>
       Locality.fromMap(json.decode(source));
+
+  factory Locality.fromDaneJson(String source) =>
+      Locality.fromDaneMap(json.decode(source));
 
   @override
   String toString() {
