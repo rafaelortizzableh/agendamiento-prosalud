@@ -9,7 +9,8 @@ class TelephoneWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      onChanged: (value) => context.read(telephoneNumberProvider).state = value,
+      onChanged: (value) =>
+          context.read(telephoneNumberProvider).state = int.parse(value),
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) =>
           value == null || value.length > 50 ? 'Máximo 10 caracteres' : null,

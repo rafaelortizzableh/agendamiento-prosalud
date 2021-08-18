@@ -12,3 +12,4 @@ export 'widgets/diagnosis.dart';
 export 'widgets/sessions.dart';
 export 'widgets/authorization_date.dart';
 export 'widgets/prefered_schedule.dart';
+export 'widgets/submit_button.dart';
