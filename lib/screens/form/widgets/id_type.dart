@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../providers/providers.dart';
-import '../../models/models.dart';
-import '../screens.dart';
+import '../../../providers/providers.dart';
+import '../../../models/models.dart';
+import '../../screens.dart';
 
 class TypeOfIdDropdown extends StatelessWidget {
   TypeOfIdDropdown({Key? key}) : super(key: key);
@@ -19,14 +19,14 @@ class TypeOfIdDropdown extends StatelessWidget {
         ];
         List<String> idNames = _typeOfIds.map((e) => e.type).toList();
         return AppDropdownInput<String?>(
-          hintText: "Tipo de documento",
+          hintText: "Tipo de documento*",
           options: idNames,
           value: watch(typeOfIdProvider).state?.type,
           onChanged: (String? value) async {
             context.read(typeOfIdProvider).state =
                 _typeOfIds.firstWhere((element) => element.type == value);
           },
-          getLabel: (String? value) => value ?? 'Tipo de documento',
+          getLabel: (String? value) => value ?? 'Tipo de documento*',
         );
       },
     );

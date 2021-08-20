@@ -8,7 +8,7 @@ class AppDropdownInput<T> extends StatelessWidget {
   final void Function(T?) onChanged;
 
   AppDropdownInput({
-    this.hintText = 'Please select an Option',
+    this.hintText = 'Por favor, selecciona una opción',
     this.options = const [],
     required this.getLabel,
     required this.value,
@@ -27,7 +27,7 @@ class AppDropdownInput<T> extends StatelessWidget {
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           ),
-          isEmpty: value == null || value == '',
+          isEmpty: value != null && value == '',
           child: DropdownButtonHideUnderline(
             child: DropdownButton<T>(
               value: value,

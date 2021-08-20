@@ -1,6 +1,6 @@
 import 'providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../models/models.dart';
+import '../../../models/models.dart';
 import '../../services/services.dart';
 
 final localityServiceProvider = Provider<LocalityRequestService>(

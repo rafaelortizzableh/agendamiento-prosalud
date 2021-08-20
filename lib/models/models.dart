@@ -3,3 +3,4 @@ export 'locality.dart';
 export 'schedule.dart';
 export 'therapy.dart';
 export 'id.dart';
+export 'insurance.dart';
