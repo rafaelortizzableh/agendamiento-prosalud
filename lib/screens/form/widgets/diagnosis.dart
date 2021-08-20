@@ -33,7 +33,7 @@ class _DiagnosisWidgetState extends State<DiagnosisWidget> {
           context.read(patientDiagnosisProvider).state = value,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) =>
-          value != null && value.length > 50 ? 'Máximo 50 caracteres' : null,
+          value != null && value.length > 300 ? 'Máximo 300 caracteres' : null,
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),

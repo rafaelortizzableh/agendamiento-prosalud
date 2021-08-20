@@ -41,45 +41,6 @@ class _TelephoneWidgetState extends State<TelephoneWidget> {
         } else {
           context.read(telephoneNumberProvider).state = 0;
         }
-
-        String departmentName =
-            context.read(selectedDepartmentProvider).state?.name ?? '';
-        String localityName =
-            context.read(selectedLocalityProvider).state?.name ?? '';
-        DateTime? authorizationDate =
-            context.read(authotizationDateProvider).state ?? null;
-
-        String typeOfTherapy =
-            context.read(typeOfTherapyProvider).state?.therapyName ?? '';
-        String scheduleTime =
-            context.read(preferredScheduleProvider).state?.time ?? '';
-        String typeOfId = context.read(typeOfIdProvider).state?.type ?? '';
-        int numberOfTherapies = context.read(numberOfTherapiesProvider).state;
-        int telephone = context.read(telephoneNumberProvider).state;
-        String name = context.read(patientNameProvider).state.trim();
-        String diagnosis = context.read(patientDiagnosisProvider).state.trim();
-        String idNumber = context.read(patientIdNumberProvider).state.trim();
-        String insuranceCompany =
-            context.read(insuranceNameProvider).state?.name ?? '';
-        int age = context.read(patientAgeProvider).state;
-        String address = context.read(addressNumberProvider).state.trim();
-        print({
-          departmentName,
-          localityName,
-          authorizationDate,
-          typeOfTherapy,
-          scheduleTime,
-          typeOfId,
-          numberOfTherapies,
-          telephone,
-          name,
-          diagnosis,
-          idNumber,
-          insuranceCompany,
-          numberOfTherapies,
-          age,
-          address
-        });
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) =>
@@ -91,7 +52,7 @@ class _TelephoneWidgetState extends State<TelephoneWidget> {
       ],
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-        labelText: 'Teléfono del paciente',
+        labelText: 'Teléfono del paciente*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );

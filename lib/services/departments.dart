@@ -1,6 +1,7 @@
 import '../models/models.dart';
 
 List<Map<String, Object>> departmentJson = [
+  {"name": "SANTANDER", "id": 68},
   {"name": "AMAZONAS", "id": 91},
   {"name": "ANTIOQUIA", "id": 5},
   {"name": "ARAUCA", "id": 81},
@@ -28,7 +29,6 @@ List<Map<String, Object>> departmentJson = [
   {"name": "QUINDÍO", "id": 63},
   {"name": "RISARALDA", "id": 66},
   {"name": "SAN ANDRÉS", "id": 88},
-  {"name": "SANTANDER", "id": 68},
   {"name": "SUCRE", "id": 70},
   {"name": "TOLIMA", "id": 73},
   {"name": "VALLE DEL CAUCA", "id": 76},

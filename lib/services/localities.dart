@@ -31,8 +31,7 @@ class LocalityRequestService {
     try {
       String jsonLocalitiesfile =
           await rootBundle.loadString('assets/json/localities.json');
-      List<Map<String, dynamic>> jsonLocalitiesList =
-          jsonDecode(jsonLocalitiesfile);
+      List<dynamic> jsonLocalitiesList = jsonDecode(jsonLocalitiesfile);
       List<Locality> allLocalities =
           jsonLocalitiesList.map((map) => Locality.fromDaneMap(map)).toList();
       String departmentId = department.id.toString();

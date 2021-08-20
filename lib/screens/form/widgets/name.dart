@@ -36,7 +36,7 @@ class _NameWidgetState extends State<NameWidget> {
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-        labelText: 'Nombre del paciente',
+        labelText: 'Nombre del paciente*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );

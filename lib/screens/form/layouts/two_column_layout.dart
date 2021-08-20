@@ -72,13 +72,14 @@ class _TwoColumnLayoutState extends State<TwoColumnLayout> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 8),
-                      Expanded(
-                        child: Image.asset(
-                          'assets/images/logo_color.png',
-                          height: 150,
+                      if (widget.constriants.maxWidth > 800) SizedBox(width: 8),
+                      if (widget.constriants.maxWidth > 800)
+                        Expanded(
+                          child: Image.asset(
+                            'assets/images/logo_color.png',
+                            height: 150,
+                          ),
                         ),
-                      ),
                     ],
                   ),
                   SizedBox(height: 16),

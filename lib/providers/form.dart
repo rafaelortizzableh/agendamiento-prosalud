@@ -1,5 +1,9 @@
-import '../models/models.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import './providers.dart';
+import '../services/services.dart';
+import '../models/models.dart';
 
 final selectedDepartmentProvider = StateProvider<Department?>((ref) => null);
 final selectedLocalityProvider = StateProvider<Locality?>((ref) => null);
@@ -15,3 +19,8 @@ final patientNameProvider = StateProvider<String>((ref) => '');
 final patientDiagnosisProvider = StateProvider<String>((ref) => '');
 final patientIdNumberProvider = StateProvider<String>((ref) => '');
 final addressNumberProvider = StateProvider<String>((ref) => '');
+final formKeyProvider =
+    Provider<GlobalKey<FormState>>((ref) => GlobalKey<FormState>());
+
+final formServiceProvider =
+    Provider<FormService>((ref) => FormService(ref.watch(dioProvider)));

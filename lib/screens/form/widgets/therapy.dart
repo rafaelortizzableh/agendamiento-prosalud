@@ -13,14 +13,14 @@ class TypeOfTherapyDropDown extends StatelessWidget {
         List<String> _therapyNames =
             therapies.map((e) => e.therapyName).toList();
         return AppDropdownInput<String?>(
-          hintText: 'Tipo de terapia',
+          hintText: 'Tipo de terapia*',
           options: _therapyNames,
           value: watch(typeOfTherapyProvider).state?.therapyName,
           onChanged: (String? value) async {
             context.read(typeOfTherapyProvider).state =
                 therapies.firstWhere((element) => element.therapyName == value);
           },
-          getLabel: (String? value) => value ?? 'Horario preferente',
+          getLabel: (String? value) => value ?? 'Tipo de terapia*',
         );
       },
     );

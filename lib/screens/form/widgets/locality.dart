@@ -16,7 +16,7 @@ class LocalityDropdown extends StatelessWidget {
             watch(selectedDepartmentProvider).state;
 
         if (_selectedDepartment != null) {
-          var localitiesProvider = watch(remoteLocalitiesListProvider);
+          var localitiesProvider = watch(localLocalitiesListProvider);
           return localitiesProvider.when(
             data: (data) {
               List<String> localityNames = data != null && data.isNotEmpty

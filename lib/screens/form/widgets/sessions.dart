@@ -52,7 +52,7 @@ class _SessionsWidgetState extends State<SessionsWidget> {
       ],
       decoration: InputDecoration(
         contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
-        labelText: 'Número de sesiones',
+        labelText: 'Número de sesiones*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
     );

@@ -12,7 +12,7 @@ class DepartmentDropdown extends StatelessWidget {
       builder: (context, watch, _) {
         List<String> deptNames = departments.map((e) => e.name).toList();
         return AppDropdownInput<String?>(
-          hintText: "Departamento*",
+          hintText: "Departamento",
           options: deptNames,
           value: watch(selectedDepartmentProvider).state?.name,
           onChanged: (String? value) async {
@@ -21,7 +21,7 @@ class DepartmentDropdown extends StatelessWidget {
             context.read(selectedLocalityProvider).state = null;
             await context.refresh(remoteLocalitiesListProvider);
           },
-          getLabel: (String? value) => value ?? 'Departamento*',
+          getLabel: (String? value) => value ?? 'Departamento',
         );
       },
     );
