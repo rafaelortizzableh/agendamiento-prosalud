@@ -147,8 +147,7 @@ class FormSubmittedDialog extends StatelessWidget {
             context.read(patientIdNumberProvider).state = '';
             context.read(patientAgeProvider).state = 0;
             context.read(addressNumberProvider).state = '';
-            context.read(formKeyProvider).currentState?.reset();
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, '/form');
           },
           child: Text('Okay'),
         ),

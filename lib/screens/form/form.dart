@@ -13,11 +13,12 @@ class FormScreen extends StatelessWidget {
       children: [
         Scaffold(
           appBar: AppBar(
+            automaticallyImplyLeading: false,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Image.network('assets/images/logo_gris.png'),
+                  icon: Image.asset('assets/images/logo_gris.png'),
                   onPressed: () async {
                     if (await canLaunch(
                         'https://profesionalesdelasalud.com.co')) {
@@ -32,7 +33,6 @@ class FormScreen extends StatelessWidget {
             elevation: 0,
           ),
           body: Form(
-            key: context.read(formKeyProvider),
             child: LayoutBuilder(
               builder: (context, constraints) {
                 if (constraints.maxWidth < 600) {
@@ -55,7 +55,6 @@ class FormScreen extends StatelessWidget {
                   child: Center(
                     child: Container(
                       decoration: BoxDecoration(
-                        // borderRadius: BorderRadius.all(Radius.circular(16)),
                         shape: BoxShape.circle,
                         color: Colors.white.withOpacity(0.75),
                       ),

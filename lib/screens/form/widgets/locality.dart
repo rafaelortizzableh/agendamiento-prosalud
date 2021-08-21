@@ -40,7 +40,7 @@ class LocalityDropdown extends StatelessWidget {
                     )
                   : Row(
                       children: [
-                        SizedBox(width: 16),
+                        SizedBox(width: 8),
                         Expanded(
                           child: AppDropdownInput<String?>(
                             hintText: "Municipio",

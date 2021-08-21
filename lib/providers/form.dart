@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import './providers.dart';
@@ -19,8 +18,6 @@ final patientNameProvider = StateProvider<String>((ref) => '');
 final patientDiagnosisProvider = StateProvider<String>((ref) => '');
 final patientIdNumberProvider = StateProvider<String>((ref) => '');
 final addressNumberProvider = StateProvider<String>((ref) => '');
-final formKeyProvider =
-    Provider<GlobalKey<FormState>>((ref) => GlobalKey<FormState>());
 
 final formServiceProvider =
     Provider<FormService>((ref) => FormService(ref.watch(dioProvider)));

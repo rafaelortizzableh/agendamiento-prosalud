@@ -5,4 +5,5 @@ List<Therapy> therapies = [
   Therapy(therapyName: 'Fonoaudiología', id: 2),
   Therapy(therapyName: 'Terapia ocupacional', id: 3),
   Therapy(therapyName: 'Terapia especializada', id: 4),
+  Therapy(therapyName: 'Rehabilitación cardíaca / pulmonar', id: 5),
 ];

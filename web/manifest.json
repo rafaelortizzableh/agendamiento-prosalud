@@ -1,23 +1,23 @@
 {
-    "name": "Agendamiento virtual | Profesionales de la salud",
-    "short_name": "Agendamiento | Prosalud",
-    "start_url": ".",
-    "display": "standalone",
-    "background_color": "#0F9FA7",
-    "theme_color": "#0F9FA7",
-    "description": "Profesionales de la Salud - Agendamiento Virtual",
-    "orientation": "portrait-primary",
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
+  "name": "Agendamiento virtual | Profesionales de la salud",
+  "short_name": "Agendamiento | Prosalud",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0F9FA7",
+  "theme_color": "#0F9FA7",
+  "description": "Profesionales de la Salud - Agendamiento Virtual",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/icons/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
