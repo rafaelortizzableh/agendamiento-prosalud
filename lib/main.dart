@@ -29,11 +29,16 @@ class MyApp extends StatelessWidget {
         '/form': (context) => FormScreen(),
       },
       theme: ThemeData(
-        primarySwatch: Colors.teal,
-        primaryColor: Color(0xFF0F9FA7),
-        accentColor: Color(0xFF0DA3D8),
-        fontFamily: 'Montserrat',
-      ),
+          primarySwatch: Colors.teal,
+          primaryColor: Color(0xFF0F9FA7),
+          colorScheme: Theme.of(context).colorScheme.copyWith(
+                primary: Color(0xFF0F9FA7),
+                secondary: Color(0xFF0DA3D8),
+              ),
+          fontFamily: 'Montserrat',
+          appBarTheme: Theme.of(context)
+              .appBarTheme
+              .copyWith(backgroundColor: Color(0xFF0F9FA7))),
       home: FormScreen(),
     );
   }
