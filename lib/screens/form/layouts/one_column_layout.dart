@@ -8,46 +8,31 @@ class OneColumnLayout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            NameWidget(),
-            SizedBox(height: 16),
-            TypeOfIdDropdown(),
-            IdNumberWidget(
-              isTwoColumn: false,
-            ),
-            SizedBox(height: 16),
-            AgeWidget(),
-            SizedBox(height: 16),
-            DiagnosisWidget(),
-            SizedBox(height: 16),
-            TypeOfTherapyDropDown(),
-            SizedBox(height: 16),
-            AddressWidget(),
-            SizedBox(height: 16),
-            InsuranceWidget(),
-            SizedBox(height: 16),
-            TelephoneWidget(),
-            SizedBox(height: 16),
-            DepartmentDropdown(),
-            LocalityDropdown(
-              isTwoColumn: false,
-            ),
-            SizedBox(height: 16),
-            SessionsWidget(),
-            SizedBox(height: 16),
-            AuthorizationDate(),
-            SizedBox(height: 16),
-            PreferedScheduleDropdown(),
-            SizedBox(height: 16),
-            SubmitButton(),
-          ],
-        ),
-      ),
+    return ListView.separated(
+      itemCount: _oneColumnWidgets.length,
+      itemBuilder: (context, index) => _oneColumnWidgets[index],
+      separatorBuilder: (context, index) =>
+          SizedBox(height: (index == 1 || index == 9) ? 0 : 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      shrinkWrap: true,
     );
   }
 }
+
+List<Widget> _oneColumnWidgets = [
+  NameWidget(),
+  TypeOfIdDropdown(),
+  IdNumberWidget(isTwoColumn: false),
+  AgeWidget(),
+  DiagnosisWidget(),
+  TypeOfTherapyDropDown(),
+  AddressWidget(),
+  InsuranceWidget(),
+  TelephoneWidget(),
+  DepartmentDropdown(),
+  LocalityDropdown(isTwoColumn: false),
+  SessionsWidget(),
+  AuthorizationDate(),
+  PreferredScheduleDropdown(),
+  SubmitButton(),
+];

@@ -111,7 +111,7 @@ class _TwoColumnLayoutState extends State<TwoColumnLayout> {
                       Expanded(
                           flex: 2,
                           child: SizedBox(
-                              width: 400, child: PreferedScheduleDropdown())),
+                              width: 400, child: PreferredScheduleDropdown())),
                       SizedBox(width: 8),
                       Expanded(
                           flex: 1,

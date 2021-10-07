@@ -31,6 +31,7 @@ class AppDropdownInput<T> extends StatelessWidget {
           child: DropdownButtonHideUnderline(
             child: DropdownButton<T>(
               value: value,
+              isExpanded: true,
               isDense: true,
               onChanged: onChanged,
               items: options.map((T value) {
