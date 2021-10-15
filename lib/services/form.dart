@@ -8,10 +8,10 @@ class FormService {
 
   final Dio _dio;
   static const String _urlEmailServerlessFunction =
-      'https://enzf2gdm7c0p9io.m.pipedream.net';
+      String.fromEnvironment('EMAIL_API_URL');
 
   static const String _urlSheetsServerlessFunction =
-      'https://en1lc94w82bp4f1.m.pipedream.net';
+      String.fromEnvironment('SHEETS_API_URL');
 
   Future<int> submitForm(
       {required Map<String, dynamic> data,
