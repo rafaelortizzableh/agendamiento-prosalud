@@ -5,7 +5,8 @@ import '../../../providers/providers.dart';
 import '../../screens.dart';
 
 class LocalityDropdown extends StatelessWidget {
-  LocalityDropdown({Key? key, required this.isTwoColumn}) : super(key: key);
+  const LocalityDropdown({Key? key, required this.isTwoColumn})
+      : super(key: key);
   final bool isTwoColumn;
 
   @override

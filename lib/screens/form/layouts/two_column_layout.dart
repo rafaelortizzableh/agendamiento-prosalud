@@ -13,50 +13,77 @@ class TwoColumnLayout extends StatefulWidget {
 }
 
 class _TwoColumnLayoutState extends State<TwoColumnLayout> {
+  static const _verticalPaddindSmall = 10.0;
+  static const _verticalPaddindMedium = 20.0;
+  static const _verticalPaddindLarge = 30.0;
+
+  double _verticalPadding = _verticalPaddindMedium;
+  @override
+  void initState() {
+    _setPadding();
+    super.initState();
+  }
+
+  void _setPadding() {
+    if (widget.constriants.maxHeight <= 800) {
+      _verticalPadding = _verticalPaddindSmall;
+    } else if (widget.constriants.maxHeight <= 1080) {
+      _verticalPadding = _verticalPaddindMedium;
+    } else {
+      _verticalPadding = _verticalPaddindLarge;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    _setPadding();
+    final _maxWidth = widget.constriants.maxWidth;
+    final _maxHeight = widget.constriants.maxHeight;
     return Container(
-      width: widget.constriants.maxWidth,
-      height: widget.constriants.maxHeight,
+      width: _maxWidth,
+      height: _maxHeight,
       color: Theme.of(context).primaryColor,
       child: Center(
         child: AnimatedContainer(
           decoration: BoxDecoration(
             color: Theme.of(context).canvasColor,
-            borderRadius: BorderRadius.all(Radius.circular(16)),
+            borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
-          duration: Duration(milliseconds: 100),
-          width: widget.constriants.maxWidth * 0.9,
-          height: widget.constriants.maxHeight * 0.95,
+          duration: const Duration(milliseconds: 100),
+          width: _maxWidth * 0.9,
+          height: _maxHeight * 0.95,
           child: SingleChildScrollView(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 16.0, vertical: _verticalPadding),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.max,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Expanded(child: NameWidget()),
-                      SizedBox(width: 8),
-                      Expanded(child: AgeWidget())
+                      Expanded(child: const NameWidget()),
+                      const SizedBox(width: 8),
+                      Expanded(child: const AgeWidget())
                     ],
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(height: _verticalPadding),
                   Consumer(builder: (context, watch, _) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Expanded(child: TypeOfIdDropdown()),
+                        Expanded(child: const TypeOfIdDropdown()),
                         if (watch(typeOfIdProvider).state != null)
-                          Expanded(child: IdNumberWidget(isTwoColumn: true))
+                          Expanded(
+                              child: const IdNumberWidget(isTwoColumn: true))
                       ],
                     );
                   }),
-                  SizedBox(height: 8),
-                  DiagnosisWidget(),
-                  SizedBox(height: 16),
+                  SizedBox(height: _verticalPadding),
+                  const DiagnosisWidget(),
+                  const SizedBox(height: 16),
                   Row(
                     children: [
                       Expanded(
@@ -65,14 +92,15 @@ class _TwoColumnLayoutState extends State<TwoColumnLayout> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              TypeOfTherapyDropDown(),
-                              SizedBox(height: 8),
-                              InsuranceWidget(),
+                              const TypeOfTherapyDropDown(),
+                              SizedBox(height: _verticalPadding),
+                              const InsuranceWidget(),
                             ],
                           ),
                         ),
                       ),
-                      if (widget.constriants.maxWidth > 800) SizedBox(width: 8),
+                      if (widget.constriants.maxWidth > 800)
+                        const SizedBox(width: 8),
                       if (widget.constriants.maxWidth > 800)
                         Expanded(
                           child: Image.asset(
@@ -82,44 +110,47 @@ class _TwoColumnLayoutState extends State<TwoColumnLayout> {
                         ),
                     ],
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Expanded(child: TelephoneWidget()),
-                      SizedBox(width: 8),
-                      Expanded(child: AddressWidget()),
+                      Expanded(child: const TelephoneWidget()),
+                      const SizedBox(width: 8),
+                      Expanded(child: const AddressWidget()),
                     ],
                   ),
-                  SizedBox(height: 8),
+                  SizedBox(height: _verticalPadding),
                   Consumer(builder: (context, watch, _) {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Expanded(child: DepartmentDropdown()),
+                        Expanded(child: const DepartmentDropdown()),
                         if (watch(selectedDepartmentProvider).state != null)
-                          Expanded(child: LocalityDropdown(isTwoColumn: true)),
+                          Expanded(
+                              child: const LocalityDropdown(isTwoColumn: true)),
                       ],
                     );
                   }),
-                  SizedBox(height: 8),
-                  AuthorizationDate(),
-                  SizedBox(height: 8),
+                  SizedBox(height: _verticalPadding),
+                  const AuthorizationDate(),
+                  SizedBox(height: _verticalPadding),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Expanded(
                           flex: 2,
                           child: SizedBox(
-                              width: 400, child: PreferredScheduleDropdown())),
-                      SizedBox(width: 8),
+                              width: 400,
+                              child: const PreferredScheduleDropdown())),
+                      const SizedBox(width: 8),
                       Expanded(
                           flex: 1,
-                          child: SizedBox(width: 100, child: SessionsWidget())),
+                          child: SizedBox(
+                              width: 100, child: const SessionsWidget())),
                     ],
                   ),
-                  SizedBox(height: 8),
-                  SubmitButton(),
+                  SizedBox(height: _verticalPadding),
+                  const SubmitButton(),
                 ],
               ),
             ),

@@ -5,7 +5,7 @@ import '../../../services/services.dart';
 import '../../screens.dart';
 
 class InsuranceWidget extends StatelessWidget {
-  InsuranceWidget({Key? key}) : super(key: key);
+  const InsuranceWidget({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Consumer(

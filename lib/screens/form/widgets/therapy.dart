@@ -5,7 +5,7 @@ import '../../../services/services.dart';
 import '../../screens.dart';
 
 class TypeOfTherapyDropDown extends StatelessWidget {
-  TypeOfTherapyDropDown({Key? key}) : super(key: key);
+  const TypeOfTherapyDropDown({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Consumer(

@@ -28,6 +28,7 @@ class _NameWidgetState extends State<NameWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      autofocus: true,
       controller: _controller,
       onChanged: (value) => context.read(patientNameProvider).state = value,
       autovalidateMode: AutovalidateMode.onUserInteraction,

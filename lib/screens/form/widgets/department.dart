@@ -5,7 +5,7 @@ import '../../../services/services.dart';
 import '../../screens.dart';
 
 class DepartmentDropdown extends StatelessWidget {
-  DepartmentDropdown({Key? key}) : super(key: key);
+  const DepartmentDropdown({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Consumer(

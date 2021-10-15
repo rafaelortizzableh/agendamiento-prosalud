@@ -5,7 +5,7 @@ import '../../../services/services.dart';
 import '../../screens.dart';
 
 class PreferredScheduleDropdown extends StatelessWidget {
-  PreferredScheduleDropdown({Key? key}) : super(key: key);
+  const PreferredScheduleDropdown({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Consumer(

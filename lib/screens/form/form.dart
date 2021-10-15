@@ -26,7 +26,7 @@ class FormScreen extends StatelessWidget {
                     }
                   },
                 ),
-                SizedBox(width: 8),
+                const SizedBox(width: 8),
                 Text('Agenda tu cita'),
               ],
             ),
