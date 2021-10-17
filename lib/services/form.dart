@@ -24,7 +24,7 @@ class FormService {
       return response.statusCode ?? 400;
     } on DioError catch (e) {
       print(e);
-      throw e;
+      throw 'Lo sentimos, algo salió mal. Por favor, inténtalo de nuevo.';
     }
   }
 
@@ -36,7 +36,7 @@ class FormService {
     required String diagnosis,
     required Therapy typeOfTherapy,
     required String address,
-    required InsuranceCompany insuranceCompany,
+    InsuranceCompany? insuranceCompany,
     required int telephone,
     Department? department,
     Locality? locality,
@@ -59,6 +59,7 @@ class FormService {
         'numberOfSessions': numberOfSessions.toString(),
         'preferedSchedule': preferedSchedule.time,
         'authDate': '${authDate.day}-${authDate.month}-${authDate.year}',
+        'insuranceCompany': insuranceCompany?.name ?? '',
       };
 
       return data;

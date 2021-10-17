@@ -17,7 +17,6 @@ class SubmitButton extends StatelessWidget {
                 watch(typeOfTherapyProvider).state != null &&
                 watch(preferredScheduleProvider).state != null &&
                 watch(typeOfIdProvider).state != null &&
-                watch(insuranceNameProvider).state != null &&
                 watch(numberOfTherapiesProvider).state > 0 &&
                 watch(patientNameProvider).state.trim().isNotEmpty &&
                 watch(patientDiagnosisProvider).state.trim().isNotEmpty &&
@@ -43,8 +42,8 @@ class SubmitButton extends StatelessWidget {
                       context.read(patientDiagnosisProvider).state.trim();
                   String idNumber =
                       context.read(patientIdNumberProvider).state.trim();
-                  InsuranceCompany insuranceCompany =
-                      context.read(insuranceNameProvider).state!;
+                  InsuranceCompany? insuranceCompany =
+                      context.read(insuranceNameProvider).state;
                   int age = context.read(patientAgeProvider).state;
                   String address =
                       context.read(addressNumberProvider).state.trim();
