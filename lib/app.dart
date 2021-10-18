@@ -16,6 +16,7 @@ class ProsaludApp extends StatelessWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      initialRoute: FormScreen.route,
       routes: {
         FormScreen.route: (context) => FormScreen(),
       },
@@ -30,7 +31,6 @@ class ProsaludApp extends StatelessWidget {
           appBarTheme: Theme.of(context)
               .appBarTheme
               .copyWith(backgroundColor: Color(0xFF0F9FA7))),
-      home: FormScreen(),
     );
   }
 }

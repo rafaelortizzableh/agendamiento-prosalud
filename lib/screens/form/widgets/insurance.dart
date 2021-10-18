@@ -13,7 +13,7 @@ class InsuranceWidget extends StatelessWidget {
         List<String> _companyNames =
             insuranceCompanies.map((e) => e.name).toList();
         return AppDropdownInput<String?>(
-          hintText: 'Entidad aseguradora*',
+          hintText: 'Entidad aseguradora',
           options: _companyNames,
           value: watch(insuranceNameProvider).state?.name,
           onChanged: (String? value) async {
