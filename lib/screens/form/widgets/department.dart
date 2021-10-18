@@ -19,7 +19,7 @@ class DepartmentDropdown extends StatelessWidget {
             context.read(selectedDepartmentProvider).state =
                 departments.firstWhere((element) => element.name == value);
             context.read(selectedLocalityProvider).state = null;
-            await context.refresh(remoteLocalitiesListProvider);
+            await context.refresh(localLocalitiesListProvider);
           },
           getLabel: (String? value) => value ?? 'Departamento',
         );
