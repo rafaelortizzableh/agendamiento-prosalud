@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       routes: {
-        '/form': (context) => FormScreen(),
+        FormScreen.route: (context) => FormScreen(),
       },
       theme: ThemeData(
           primarySwatch: Colors.teal,

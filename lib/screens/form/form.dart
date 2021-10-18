@@ -6,6 +6,7 @@ import '../screens.dart';
 
 class FormScreen extends StatelessWidget {
   const FormScreen({Key? key}) : super(key: key);
+  static const route = '/';
 
   @override
   Widget build(BuildContext context) {

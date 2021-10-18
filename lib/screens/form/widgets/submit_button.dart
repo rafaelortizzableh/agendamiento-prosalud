@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/providers.dart';
 import '../../../models/models.dart';
 import '../../../services/services.dart';
+import '../../screens.dart';
 
 class SubmitButton extends StatelessWidget {
   const SubmitButton({
@@ -146,7 +147,7 @@ class FormSubmittedDialog extends StatelessWidget {
             context.read(patientIdNumberProvider).state = '';
             context.read(patientAgeProvider).state = 0;
             context.read(addressNumberProvider).state = '';
-            Navigator.pushReplacementNamed(context, '/form');
+            Navigator.pushReplacementNamed(context, FormScreen.route);
           },
           child: Text('Okay'),
         ),
