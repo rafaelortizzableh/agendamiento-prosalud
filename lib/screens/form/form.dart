@@ -7,6 +7,8 @@ import '../screens.dart';
 class FormScreen extends StatelessWidget {
   const FormScreen({Key? key}) : super(key: key);
   static const route = '/';
+  static const _logoAsset = 'assets/images/logo_gris.png';
+  static const _websiteUrl = 'https://profesionalesdelasalud.com.co';
 
   @override
   Widget build(BuildContext context) {
@@ -19,16 +21,15 @@ class FormScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                  icon: Image.asset('assets/images/logo_gris.png'),
+                  icon: Image.asset(_logoAsset),
                   onPressed: () async {
-                    if (await canLaunch(
-                        'https://profesionalesdelasalud.com.co')) {
-                      launch('https://profesionalesdelasalud.com.co');
+                    if (await canLaunch(_websiteUrl)) {
+                      launch(_websiteUrl);
                     }
                   },
                 ),
                 const SizedBox(width: 8),
-                Text('Agenda tu cita'),
+                const Text('Agenda tu cita'),
               ],
             ),
             elevation: 0,
@@ -60,14 +61,14 @@ class FormScreen extends StatelessWidget {
                         color: Colors.white.withOpacity(0.75),
                       ),
                       padding: const EdgeInsets.all(16),
-                      child: SizedBox(
+                      child: const SizedBox(
                           width: 32,
                           height: 32,
-                          child: CircularProgressIndicator()),
+                          child: const CircularProgressIndicator()),
                     ),
                   ),
                 )
-              : SizedBox();
+              : const SizedBox();
         })
       ],
     );
