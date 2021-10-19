@@ -35,7 +35,7 @@ class _TwoColumnLayoutState extends State<TwoColumnLayout> {
             color: Theme.of(context).canvasColor,
             borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
-          duration: const Duration(milliseconds: 100),
+          duration: const Duration(milliseconds: 10),
           width: _maxWidth * 0.9,
           height: _maxHeight * 0.95,
           child: Center(
