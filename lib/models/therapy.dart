@@ -4,7 +4,7 @@ class Therapy {
   final String therapyName;
   final int id;
 
-  Therapy({
+  const Therapy({
     required this.therapyName,
     required this.id,
   });

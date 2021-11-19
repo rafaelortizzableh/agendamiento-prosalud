@@ -35,7 +35,7 @@ class LocalityRequestService {
       List<Locality> allLocalities =
           jsonLocalitiesList.map((map) => Locality.fromDaneMap(map)).toList();
       String departmentId = department.id.toString();
-      List<Locality> definiteList = allLocalities
+      final List<Locality> definiteList = allLocalities
           .where((element) =>
               element.departmentId.toString().startsWith(departmentId))
           .toList();

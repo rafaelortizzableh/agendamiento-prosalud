@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 class Department {
-  String name;
-  int id;
-  String? capital;
+  final String name;
+  final int id;
+  final String? capital;
 
-  Department({
+  const Department({
     required this.name,
     required this.id,
     this.capital,

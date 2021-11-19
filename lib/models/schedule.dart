@@ -3,7 +3,8 @@ import 'dart:convert';
 class Schedule {
   final String time;
   final int id;
-  Schedule({
+
+  const Schedule({
     required this.time,
     required this.id,
   });

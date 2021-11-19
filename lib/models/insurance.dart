@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class InsuranceCompany {
-  String name;
-  int id;
+  final String name;
+  final int id;
 
-  InsuranceCompany({
+  const InsuranceCompany({
     required this.name,
     required this.id,
   });

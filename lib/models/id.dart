@@ -3,7 +3,8 @@ import 'dart:convert';
 class TypeOfId {
   final String type;
   final int id;
-  TypeOfId({
+
+  const TypeOfId({
     required this.type,
     required this.id,
   });

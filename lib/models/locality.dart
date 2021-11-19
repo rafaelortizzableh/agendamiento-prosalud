@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 class Locality {
-  String name;
-  String id;
-  bool? isCapital;
-  String departmentId;
-  String? departmentName;
+  final String name;
+  final String id;
+  final bool? isCapital;
+  final String departmentId;
+  final String? departmentName;
 
-  Locality({
+  const Locality({
     required this.name,
     required this.id,
     this.isCapital,

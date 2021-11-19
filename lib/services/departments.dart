@@ -1,6 +1,6 @@
 import '../models/models.dart';
 
-List<Map<String, Object>> departmentJson = [
+const List<Map<String, Object>> departmentJson = const [
   {"name": "SANTANDER", "id": 68},
   {"name": "AMAZONAS", "id": 91},
   {"name": "ANTIOQUIA", "id": 5},
@@ -36,5 +36,5 @@ List<Map<String, Object>> departmentJson = [
   {"name": "VICHADA", "id": 99}
 ];
 
-List<Department> departments =
+final List<Department> departments =
     departmentJson.map((e) => Department.fromMap(e)).toList();

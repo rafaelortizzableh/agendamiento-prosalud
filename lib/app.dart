@@ -6,7 +6,7 @@ class ProsaludApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Agendamiento - Profesionales de la salud',
+      title: 'Agendamiento - Profesionales de la Salud',
       locale: Locale('es', 'CO'),
       supportedLocales: [
         Locale('es', 'CO'),
@@ -22,15 +22,15 @@ class ProsaludApp extends StatelessWidget {
       },
       theme: ThemeData(
           primarySwatch: Colors.teal,
-          primaryColor: Color(0xFF0F9FA7),
+          primaryColor: const Color(0xFF0F9FA7),
           colorScheme: Theme.of(context).colorScheme.copyWith(
-                primary: Color(0xFF0F9FA7),
-                secondary: Color(0xFF0DA3D8),
+                primary: const Color(0xFF0F9FA7),
+                secondary: const Color(0xFF0DA3D8),
               ),
           fontFamily: 'Montserrat',
           appBarTheme: Theme.of(context)
               .appBarTheme
-              .copyWith(backgroundColor: Color(0xFF0F9FA7))),
+              .copyWith(backgroundColor: const Color(0xFF0F9FA7))),
     );
   }
 }
