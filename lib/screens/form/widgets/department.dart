@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/providers.dart';
 import '../../../services/services.dart';
-import '../../screens.dart';
+import '../../../core/core.dart';
 
 class DepartmentDropdown extends StatelessWidget {
   const DepartmentDropdown({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Consumer(

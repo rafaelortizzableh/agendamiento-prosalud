@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../models/models.dart';
 import '../../../providers/providers.dart';
-import '../../screens.dart';
+import '../../../core/core.dart';
 
 class LocalityDropdown extends StatelessWidget {
   const LocalityDropdown({Key? key, required this.isTwoColumn})

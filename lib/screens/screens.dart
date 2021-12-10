@@ -1,6 +1,5 @@
 export 'form/widgets/department.dart';
 export 'form/widgets/locality.dart';
-export 'form/widgets/dropdown.dart';
 export 'form/widgets/name.dart';
 export 'form/widgets/address.dart';
 export 'form/widgets/insurance.dart';
