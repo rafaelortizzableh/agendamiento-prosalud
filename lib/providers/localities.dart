@@ -9,25 +9,23 @@ final localityServiceProvider = Provider<LocalityRequestService>(
 
 final localLocalitiesListProvider = FutureProvider<List<Locality>?>(
   (ref) async {
-    if (ref.watch(selectedDepartmentProvider).state != null) {
-      return await ref
-          .watch(localityServiceProvider)
-          .getLocalitiesFromLocalJson(
-              ref.watch(selectedDepartmentProvider).state!);
-    }
+    if (ref.watch(selectedDepartmentProvider).state == null) return null;
+
+    return await ref.watch(localityServiceProvider).getLocalitiesFromLocalJson(
+        ref.watch(selectedDepartmentProvider).state!);
   },
 );
 
 final remoteLocalitiesListProvider = FutureProvider<List<Locality>?>(
   (ref) async {
-    if (ref.watch(selectedDepartmentProvider).state != null) {
-      return await ref
-          .watch(localityServiceProvider)
-          .getLocalitiesFromDane(ref.watch(selectedDepartmentProvider).state!);
-    } else {
+    if (ref.watch(selectedDepartmentProvider).state == null) {
       return await ref
           .watch(localityServiceProvider)
           .getLocalitiesFromDane(departments[27]);
     }
+
+    return await ref
+        .watch(localityServiceProvider)
+        .getLocalitiesFromDane(ref.watch(selectedDepartmentProvider).state!);
   },
 );

@@ -7,18 +7,18 @@ class ProsaludApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Agendamiento - Profesionales de la Salud',
-      locale: Locale('es', 'CO'),
-      supportedLocales: [
+      locale: const Locale('es', 'CO'),
+      supportedLocales: const [
         Locale('es', 'CO'),
       ],
-      localizationsDelegates: [
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
       initialRoute: FormScreen.route,
       routes: {
-        FormScreen.route: (context) => FormScreen(),
+        FormScreen.route: (context) => const FormScreen(),
       },
       theme: ThemeData(
           primarySwatch: Colors.teal,

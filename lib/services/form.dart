@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 import '../models/models.dart';
 
 enum SubmitSheetsOrEmailFunction { email, sheets }
@@ -23,7 +24,7 @@ class FormService {
       Response response = await _dio.post(_url, data: data);
       return response.statusCode ?? 400;
     } on DioError catch (e) {
-      print(e);
+      debugPrint(e.toString());
       throw 'Lo sentimos, algo salió mal. Por favor, inténtalo de nuevo.';
     }
   }
@@ -64,7 +65,7 @@ class FormService {
 
       return data;
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
       throw e;
     }
   }

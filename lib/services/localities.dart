@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import '../models/models.dart';
 
@@ -21,7 +22,7 @@ class LocalityRequestService {
 
       return definiteList;
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
       throw (e);
     }
   }
@@ -41,7 +42,8 @@ class LocalityRequestService {
           .toList();
       return definiteList;
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
+      throw (e);
     }
   }
 }
