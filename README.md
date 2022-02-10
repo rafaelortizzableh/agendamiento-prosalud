@@ -1,7 +1,10 @@
 # agendamiento_prosalud
 
-Agendamiento - Profesionales de la Salud
+Simple responsive Flutter app for collecting user information and program simle bookings for Profesionales de la Salud.
 
-## App para gestionar agendamiento de Profesionales de la salud
+## Getting Started
 
-Para construir o ejecutar, se necesitan los endpoints de conexión de las APIs, para introducir los datos. 
+This app is not meant to be built without the form API endpoints. But you may see the final result at [agendamiento.profesionalesdelasalud.com.co](https://agendamiento.profesionalesdelasalud.com.co)
+
+## About the tools used
+State Management & Dependency Injection are handled with Riverpod.
