@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../models/models.dart';
 import '../../../providers/providers.dart';
 import '../../../core/core.dart';
 
@@ -12,12 +11,13 @@ class LocalityDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, _) {
-        Department? _selectedDepartment =
-            watch(selectedDepartmentProvider).state;
+      builder: (context, ref, _) {
+        final selectedDepartment = ref.watch(
+          selectedDepartmentProvider,
+        );
 
-        if (_selectedDepartment != null) {
-          var localitiesProvider = watch(localLocalitiesListProvider);
+        if (selectedDepartment != null) {
+          var localitiesProvider = ref.watch(localLocalitiesListProvider);
           return localitiesProvider.when(
             data: (data) {
               List<String> localityNames = data != null && data.isNotEmpty
@@ -26,14 +26,15 @@ class LocalityDropdown extends StatelessWidget {
               return !isTwoColumn
                   ? Column(
                       children: [
-                        SizedBox(height: 16),
+                        const SizedBox(height: 16),
                         AppDropdownInput<String?>(
                           hintText: "Municipio",
                           options: localityNames,
-                          value: watch(selectedLocalityProvider).state?.name,
+                          value: ref.watch(selectedLocalityProvider)?.name,
                           onChanged: (String? value) {
-                            context.read(selectedLocalityProvider).state = data!
-                                .firstWhere((element) => element.name == value);
+                            ref.read(selectedLocalityProvider.notifier).state =
+                                data!.firstWhere(
+                                    (element) => element.name == value);
                           },
                           getLabel: (String? value) => value ?? 'Municipio',
                         ),
@@ -41,14 +42,16 @@ class LocalityDropdown extends StatelessWidget {
                     )
                   : Row(
                       children: [
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Expanded(
                           child: AppDropdownInput<String?>(
                             hintText: "Municipio",
                             options: localityNames,
-                            value: watch(selectedLocalityProvider).state?.name,
+                            value: ref.watch(selectedLocalityProvider)?.name,
                             onChanged: (String? value) {
-                              context.read(selectedLocalityProvider).state =
+                              ref
+                                      .read(selectedLocalityProvider.notifier)
+                                      .state =
                                   data!.firstWhere(
                                       (element) => element.name == value);
                             },
@@ -58,11 +61,11 @@ class LocalityDropdown extends StatelessWidget {
                       ],
                     );
             },
-            loading: () => Center(child: CircularProgressIndicator()),
-            error: (error, _) => Center(child: Icon(Icons.error)),
+            loading: () => const Center(child: CircularProgressIndicator()),
+            error: (error, _) => const Center(child: Icon(Icons.error)),
           );
         }
-        return SizedBox();
+        return const SizedBox();
       },
     );
   }

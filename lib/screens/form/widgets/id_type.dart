@@ -19,14 +19,15 @@ class TypeOfIdDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, _) {
+      builder: (context, ref, _) {
         return AppDropdownInput<String?>(
           hintText: "Tipo de documento*",
           options: _idNames,
-          value: watch(typeOfIdProvider).state?.type,
+          value: ref.watch(typeOfIdProvider)?.type,
           onChanged: (String? value) async {
-            context.read(typeOfIdProvider).state =
-                _typeOfIds.firstWhere((element) => element.type == value);
+            ref.read(typeOfIdProvider.notifier).state = _typeOfIds.firstWhere(
+              (element) => element.type == value,
+            );
           },
           getLabel: (String? value) => value ?? 'Tipo de documento*',
         );

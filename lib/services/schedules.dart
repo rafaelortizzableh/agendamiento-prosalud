@@ -1,6 +1,6 @@
 import '../models/models.dart';
 
-const List<Schedule> schedules = const [
+const List<Schedule> schedules = [
   Schedule(time: '7:00 AM - 9:00 AM', id: 1),
   Schedule(time: '9:00 AM - 12:00 PM', id: 2),
   Schedule(time: '1:00 PM - 4:00 PM', id: 3),

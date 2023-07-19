@@ -38,7 +38,7 @@ class OneColumnLayout extends StatelessWidget {
   }
 }
 
-const List<Widget> _oneColumnWidgets = const [
+const List<Widget> _oneColumnWidgets = [
   NameWidget(),
   TypeOfIdDropdown(),
   IdNumberWidget(isTwoColumn: false),

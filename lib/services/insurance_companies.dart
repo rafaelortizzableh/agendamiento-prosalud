@@ -1,6 +1,6 @@
 import '../models/models.dart';
 
-const List<InsuranceCompany> insuranceCompanies = const [
+const List<InsuranceCompany> insuranceCompanies = [
   InsuranceCompany(name: 'NUEVA EPS', id: 1),
   InsuranceCompany(name: 'FUNDACION AVANZAR FOS', id: 2),
   InsuranceCompany(name: 'UT RED INTEGRADA', id: 3),

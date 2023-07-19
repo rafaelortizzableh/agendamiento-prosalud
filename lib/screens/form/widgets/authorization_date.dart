@@ -8,36 +8,36 @@ class AuthorizationDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, _) {
-        DateTime? _selectedDate = watch(authotizationDateProvider).state;
+      builder: (context, ref, _) {
+        DateTime? selectedDate = ref.watch(authotizationDateProvider);
         return FormField<DateTime?>(
           builder: (FormFieldState<DateTime?> state) {
             return InputDecorator(
               decoration: InputDecoration(
-                contentPadding:
-                    EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                contentPadding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 15.0),
                 labelText: 'Fecha de autorización*',
                 border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.0)),
               ),
-              isEmpty: _selectedDate == null,
+              isEmpty: selectedDate == null,
               child: InkWell(
                 onTap: () async {
-                  DateTime? _date = await showDatePicker(
+                  DateTime? date = await showDatePicker(
                     context: context,
-                    initialDate: DateTime.now().add(Duration(days: 1)),
-                    firstDate: DateTime.now().add(Duration(days: 1)),
+                    initialDate: DateTime.now().add(const Duration(days: 1)),
+                    firstDate: DateTime.now().add(const Duration(days: 1)),
                     lastDate: DateTime.now().add(
-                      Duration(days: 30),
+                      const Duration(days: 30),
                     ),
                   );
-                  if (_date != null) {
-                    context.read(authotizationDateProvider).state = _date;
+                  if (date != null) {
+                    ref.read(authotizationDateProvider.notifier).state = date;
                   }
                 },
                 child: Text(
-                  _selectedDate != null
-                      ? '${_selectedDate.day}-${_selectedDate.month}-${_selectedDate.year}'
+                  selectedDate != null
+                      ? '${selectedDate.day}-${selectedDate.month}-${selectedDate.year}'
                       : '',
                 ),
               ),

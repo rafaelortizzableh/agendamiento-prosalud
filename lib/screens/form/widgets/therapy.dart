@@ -9,16 +9,18 @@ class TypeOfTherapyDropDown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, _) {
-        List<String> _therapyNames =
+      builder: (context, ref, _) {
+        List<String> therapyNames =
             therapies.map((e) => e.therapyName).toList();
         return AppDropdownInput<String?>(
           hintText: 'Tipo de terapia*',
-          options: _therapyNames,
-          value: watch(typeOfTherapyProvider).state?.therapyName,
+          options: therapyNames,
+          value: ref.watch(typeOfTherapyProvider)?.therapyName,
           onChanged: (String? value) async {
-            context.read(typeOfTherapyProvider).state =
-                therapies.firstWhere((element) => element.therapyName == value);
+            ref.read(typeOfTherapyProvider.notifier).state =
+                therapies.firstWhere(
+              (element) => element.therapyName == value,
+            );
           },
           getLabel: (String? value) => value ?? 'Tipo de terapia*',
         );

@@ -7,7 +7,8 @@ class AppDropdownInput<T> extends StatelessWidget {
   final String Function(T) getLabel;
   final void Function(T?) onChanged;
 
-  AppDropdownInput({
+  const AppDropdownInput({
+    super.key,
     this.hintText = 'Por favor, selecciona una opción',
     this.options = const [],
     required this.getLabel,
@@ -22,7 +23,7 @@ class AppDropdownInput<T> extends StatelessWidget {
         return InputDecorator(
           decoration: InputDecoration(
             contentPadding:
-                EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
             labelText: hintText,
             border:
                 OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),

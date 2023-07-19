@@ -3,21 +3,24 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/providers.dart';
 
-class AgeWidget extends StatefulWidget {
+class AgeWidget extends ConsumerStatefulWidget {
   const AgeWidget({Key? key}) : super(key: key);
 
   @override
-  _AgeWidgetState createState() => _AgeWidgetState();
+  ConsumerState<AgeWidget> createState() => _AgeWidgetState();
 }
 
-class _AgeWidgetState extends State<AgeWidget> {
+class _AgeWidgetState extends ConsumerState<AgeWidget> {
   late TextEditingController _controller;
 
   @override
   void initState() {
-    if (context.read(patientAgeProvider).state != 0) {
-      _controller = TextEditingController.fromValue(TextEditingValue(
-          text: context.read(patientAgeProvider).state.toString()));
+    if (ref.read(patientAgeProvider) != 0) {
+      _controller = TextEditingController.fromValue(
+        TextEditingValue(
+          text: ref.read(patientAgeProvider).toString(),
+        ),
+      );
     } else {
       _controller = TextEditingController();
     }
@@ -37,9 +40,9 @@ class _AgeWidgetState extends State<AgeWidget> {
       controller: _controller,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          context.read(patientAgeProvider).state = int.parse(value);
+          ref.read(patientAgeProvider.notifier).state = int.parse(value);
         } else {
-          context.read(patientAgeProvider).state = 0;
+          ref.read(patientAgeProvider.notifier).state = 0;
         }
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -51,7 +54,8 @@ class _AgeWidgetState extends State<AgeWidget> {
         FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
       ],
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         labelText: 'Edad*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),

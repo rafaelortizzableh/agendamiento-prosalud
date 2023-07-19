@@ -2,7 +2,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import '../models/models.dart';
 
-enum SubmitSheetsOrEmailFunction { email, sheets }
+typedef FormSumbissionsRecord = ({
+  int sheetsResultStatusCode,
+  int emailResultStatusCode
+});
 
 class FormService {
   FormService(this._dio);
@@ -14,16 +17,20 @@ class FormService {
   static const String _urlSheetsServerlessFunction =
       String.fromEnvironment('SHEETS_API_URL');
 
-  Future<int> submitForm(
-      {required Map<String, dynamic> data,
-      required SubmitSheetsOrEmailFunction type}) async {
+  Future<FormSumbissionsRecord> submitForm({
+    required Map<String, dynamic> data,
+  }) async {
     try {
-      String _url = type == SubmitSheetsOrEmailFunction.email
-          ? _urlEmailServerlessFunction
-          : _urlSheetsServerlessFunction;
-      Response response = await _dio.post(_url, data: data);
-      return response.statusCode ?? 400;
-    } on DioError catch (e) {
+      final responses = await Future.wait([
+        _dio.post(_urlSheetsServerlessFunction, data: data),
+        _dio.post(_urlEmailServerlessFunction, data: data),
+      ]);
+
+      return (
+        sheetsResultStatusCode: responses.first.statusCode ?? 400,
+        emailResultStatusCode: responses.last.statusCode ?? 400,
+      );
+    } on DioException catch (e) {
       debugPrint(e.toString());
       throw 'Lo sentimos, algo salió mal. Por favor, inténtalo de nuevo.';
     }
@@ -66,7 +73,7 @@ class FormService {
       return data;
     } catch (e) {
       debugPrint(e.toString());
-      throw e;
+      rethrow;
     }
   }
 }

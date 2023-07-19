@@ -1,6 +1,6 @@
 import '../models/models.dart';
 
-const List<Therapy> therapies = const [
+const List<Therapy> therapies = [
   Therapy(therapyName: 'Fisioterapia', id: 1),
   Therapy(therapyName: 'Fonoaudiología', id: 2),
   Therapy(therapyName: 'Terapia ocupacional', id: 3),

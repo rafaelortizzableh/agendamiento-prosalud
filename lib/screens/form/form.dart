@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../providers/providers.dart';
 import '../screens.dart';
 
@@ -32,8 +32,8 @@ class FormScreen extends StatelessWidget {
                 IconButton(
                   icon: Image.asset(_logoAsset),
                   onPressed: () async {
-                    if (await canLaunch(_websiteUrl)) {
-                      launch(_websiteUrl);
+                    if (await canLaunchUrlString(_websiteUrl)) {
+                      launchUrlString(_websiteUrl);
                     }
                   },
                 ),
@@ -47,7 +47,7 @@ class FormScreen extends StatelessWidget {
             child: LayoutBuilder(
               builder: (context, constraints) {
                 if (constraints.maxWidth < _mobileMaxWidth) {
-                  return OneColumnLayout();
+                  return const OneColumnLayout();
                 } else {
                   return TwoColumnLayout(
                     constriants: constraints,
@@ -58,8 +58,8 @@ class FormScreen extends StatelessWidget {
           ),
         ),
         Consumer(
-          builder: (context, watch, _) {
-            return watch(isLoadingProvider).state
+          builder: (context, ref, _) {
+            return ref.watch(isLoadingProvider)
                 ? Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
@@ -74,7 +74,7 @@ class FormScreen extends StatelessWidget {
                         child: const SizedBox(
                             width: _padding32,
                             height: _padding32,
-                            child: const CircularProgressIndicator()),
+                            child: CircularProgressIndicator()),
                       ),
                     ),
                   )

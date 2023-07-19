@@ -3,6 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'screens/screens.dart';
 
 class ProsaludApp extends StatelessWidget {
+  const ProsaludApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

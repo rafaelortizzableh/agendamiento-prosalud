@@ -23,7 +23,7 @@ class LocalityRequestService {
       return definiteList;
     } catch (e) {
       debugPrint(e.toString());
-      throw (e);
+      rethrow;
     }
   }
 
@@ -43,7 +43,7 @@ class LocalityRequestService {
       return definiteList;
     } catch (e) {
       debugPrint(e.toString());
-      throw (e);
+      rethrow;
     }
   }
 }

@@ -3,21 +3,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/providers.dart';
 
-class TelephoneWidget extends StatefulWidget {
+class TelephoneWidget extends ConsumerStatefulWidget {
   const TelephoneWidget({Key? key}) : super(key: key);
 
   @override
-  _TelephoneWidgetState createState() => _TelephoneWidgetState();
+  ConsumerState<TelephoneWidget> createState() => _TelephoneWidgetState();
 }
 
-class _TelephoneWidgetState extends State<TelephoneWidget> {
+class _TelephoneWidgetState extends ConsumerState<TelephoneWidget> {
   late TextEditingController _controller;
 
   @override
   void initState() {
-    if (context.read(telephoneNumberProvider).state != 0) {
-      _controller = TextEditingController.fromValue(TextEditingValue(
-          text: context.read(telephoneNumberProvider).state.toString()));
+    if (ref.read(telephoneNumberProvider) != 0) {
+      _controller = TextEditingController.fromValue(
+          TextEditingValue(text: ref.read(telephoneNumberProvider).toString()));
     } else {
       _controller = TextEditingController();
     }
@@ -37,9 +37,9 @@ class _TelephoneWidgetState extends State<TelephoneWidget> {
       controller: _controller,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          context.read(telephoneNumberProvider).state = int.parse(value);
+          ref.read(telephoneNumberProvider.notifier).state = int.parse(value);
         } else {
-          context.read(telephoneNumberProvider).state = 0;
+          ref.read(telephoneNumberProvider.notifier).state = 0;
         }
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -51,7 +51,8 @@ class _TelephoneWidgetState extends State<TelephoneWidget> {
         FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
       ],
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         labelText: 'Teléfono del paciente*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),

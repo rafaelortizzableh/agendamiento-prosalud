@@ -6,7 +6,7 @@ import 'app.dart';
 void main() {
   configureApp();
   runApp(
-    ProviderScope(
+    const ProviderScope(
       child: ProsaludApp(),
     ),
   );

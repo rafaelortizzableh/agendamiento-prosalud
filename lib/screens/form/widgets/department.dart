@@ -10,17 +10,17 @@ class DepartmentDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, _) {
+      builder: (context, ref, _) {
         List<String> deptNames = departments.map((e) => e.name).toList();
         return AppDropdownInput<String?>(
           hintText: "Departamento",
           options: deptNames,
-          value: watch(selectedDepartmentProvider).state?.name,
+          value: ref.watch(selectedDepartmentProvider)?.name,
           onChanged: (String? value) async {
-            context.read(selectedDepartmentProvider).state =
+            ref.read(selectedDepartmentProvider.notifier).state =
                 departments.firstWhere((element) => element.name == value);
-            context.read(selectedLocalityProvider).state = null;
-            await context.refresh(localLocalitiesListProvider);
+            ref.read(selectedLocalityProvider.notifier).state = null;
+            ref.invalidate(localLocalitiesListProvider);
           },
           getLabel: (String? value) => value ?? 'Departamento',
         );

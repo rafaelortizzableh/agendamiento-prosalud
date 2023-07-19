@@ -9,15 +9,15 @@ class InsuranceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, _) {
-        List<String> _companyNames =
+      builder: (context, ref, _) {
+        List<String> companyNames =
             insuranceCompanies.map((e) => e.name).toList();
         return AppDropdownInput<String?>(
           hintText: 'Entidad aseguradora',
-          options: _companyNames,
-          value: watch(insuranceNameProvider).state?.name,
+          options: companyNames,
+          value: ref.watch(insuranceNameProvider)?.name,
           onChanged: (String? value) async {
-            context.read(insuranceNameProvider).state = insuranceCompanies
+            ref.read(insuranceNameProvider.notifier).state = insuranceCompanies
                 .firstWhere((element) => element.name == value);
           },
           getLabel: (String? value) => value ?? 'Entidad aseguradora*',

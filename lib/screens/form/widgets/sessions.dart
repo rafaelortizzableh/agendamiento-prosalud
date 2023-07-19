@@ -3,21 +3,21 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/providers.dart';
 
-class SessionsWidget extends StatefulWidget {
+class SessionsWidget extends ConsumerStatefulWidget {
   const SessionsWidget({Key? key}) : super(key: key);
 
   @override
-  _SessionsWidgetState createState() => _SessionsWidgetState();
+  ConsumerState<SessionsWidget> createState() => _SessionsWidgetState();
 }
 
-class _SessionsWidgetState extends State<SessionsWidget> {
+class _SessionsWidgetState extends ConsumerState<SessionsWidget> {
   late TextEditingController _controller;
 
   @override
   void initState() {
-    if (context.read(numberOfTherapiesProvider).state != 0) {
+    if (ref.read(numberOfTherapiesProvider) != 0) {
       _controller = TextEditingController.fromValue(TextEditingValue(
-          text: context.read(numberOfTherapiesProvider).state.toString()));
+          text: ref.read(numberOfTherapiesProvider).toString()));
     } else {
       _controller = TextEditingController();
     }
@@ -37,9 +37,9 @@ class _SessionsWidgetState extends State<SessionsWidget> {
       controller: _controller,
       onChanged: (value) {
         if (value.isNotEmpty) {
-          context.read(numberOfTherapiesProvider).state = int.parse(value);
+          ref.read(numberOfTherapiesProvider.notifier).state = int.parse(value);
         } else {
-          context.read(numberOfTherapiesProvider).state = 0;
+          ref.read(numberOfTherapiesProvider.notifier).state = 0;
         }
       },
       autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -51,7 +51,10 @@ class _SessionsWidgetState extends State<SessionsWidget> {
         FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
       ],
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20.0,
+          vertical: 15.0,
+        ),
         labelText: 'Número de sesiones*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),

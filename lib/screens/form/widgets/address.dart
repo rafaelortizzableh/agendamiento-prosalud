@@ -2,20 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../providers/providers.dart';
 
-class AddressWidget extends StatefulWidget {
+class AddressWidget extends ConsumerStatefulWidget {
   const AddressWidget({Key? key}) : super(key: key);
 
   @override
-  _AddressWidgetState createState() => _AddressWidgetState();
+  ConsumerState<AddressWidget> createState() => _AddressWidgetState();
 }
 
-class _AddressWidgetState extends State<AddressWidget> {
+class _AddressWidgetState extends ConsumerState<AddressWidget> {
   late TextEditingController _controller;
 
   @override
   void initState() {
     _controller = TextEditingController.fromValue(
-        TextEditingValue(text: context.read(addressNumberProvider).state));
+      TextEditingValue(text: ref.read(addressNumberProvider)),
+    );
     super.initState();
   }
 
@@ -32,11 +33,13 @@ class _AddressWidgetState extends State<AddressWidget> {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       validator: (value) =>
           value != null && value.length > 50 ? 'Máximo 50 caracteres' : null,
-      onChanged: (value) => context.read(addressNumberProvider).state = value,
+      onChanged: (value) =>
+          ref.read(addressNumberProvider.notifier).state = value,
       keyboardType: TextInputType.streetAddress,
       textInputAction: TextInputAction.next,
       decoration: InputDecoration(
-        contentPadding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
+        contentPadding:
+            const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         labelText: 'Dirección*',
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
       ),
